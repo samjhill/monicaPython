@@ -76,7 +76,7 @@ class Tasks:
         basic_api = self.basic_api
 
         api = f"{basic_api}/task/"
-        payload = {"title": title, "description": description, "contact_id": contact_id, "completed": false}
+        payload = {"title": title, "description": description, "contact_id": contact_id, "completed": False}
         response = requests.put(api, params=payload, headers=headers)
         print(response)
 
