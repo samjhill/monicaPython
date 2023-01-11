@@ -15,7 +15,7 @@ Todo:
 import time
 import requests
 import json
-from monica.utils import Utils
+from .utils import Utils
 from pprint import pprint
 import pandas as pd
 
