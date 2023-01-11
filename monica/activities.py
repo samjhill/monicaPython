@@ -18,7 +18,7 @@ import pandas as pd
 basic_api = 'https://app.monicahq.com/api'
 
 
-class Calls:
+class Activities:
 	def __init__(self, access_token, wait_time=1):
 		"""
 		Connect with monica activities API found at https://www.monicahq.com/api/activities
