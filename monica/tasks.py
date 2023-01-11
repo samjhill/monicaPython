@@ -15,89 +15,71 @@ from .utils import Utils
 from pprint import pprint
 import pandas as pd
 
-basic_api = 'https://app.monicahq.com/api'
+basic_api = "https://app.monicahq.com/api"
 
 
 class Tasks:
-	def __init__(self, access_token, wait_time=1):
-		"""
-		Connect with monica tasks API found at https://www.monicahq.com/api/tasks
+    def __init__(self, access_token, wait_time=1):
+        """
+        Connect with monica tasks API found at https://www.monicahq.com/api/tasks
 
-		Parameters: 
-		-----------
-			access_token: str
-				token retreived from monica platform
+        Parameters:
+        -----------
+                access_token: str
+                        token retreived from monica platform
 
-			wait_time: int
-				seconds to wait after every request sent
+                wait_time: int
+                        seconds to wait after every request sent
 
-		"""
-		headers = {'Authorization': f'Bearer {access_token}', 
-					'Content-type': 'application/json', 
-					'Accept': 'text/plain'}
-		
-		self.headers = headers	
-		self.basic_api = basic_api
-		self.wait_time = wait_time
-		self.utils = Utils()
+        """
+        headers = {
+            "Authorization": f"Bearer {access_token}",
+            "Content-type": "application/json",
+            "Accept": "text/plain",
+        }
 
-	def list_tasks(self):
-		"""
-		Gets the tasks from monica. Checkout monica API documentation for detailed description.
+        self.headers = headers
+        self.basic_api = basic_api
+        self.wait_time = wait_time
+        self.utils = Utils()
 
-		Parameters: None
-		-----------
+    def list_tasks(self):
+        """
+        Gets the tasks from monica. Checkout monica API documentation for detailed description.
 
-		
-		Returns: 
-		-------
-		json_data: dict/json
-			can be easily converted to pandas dataframe	
+        Parameters: None
+        -----------
 
-		"""
-		headers = self.headers
-		wait_time = self.wait_time
-		basic_api = self.basic_api		
 
-		api = f"{basic_api}/tasks"
+        Returns:
+        -------
+        json_data: dict/json
+                can be easily converted to pandas dataframe
 
-		response = requests.get(api, headers=headers)    
-		print(response)
+        """
+        headers = self.headers
+        wait_time = self.wait_time
+        basic_api = self.basic_api
 
-		json_data = response.json()
+        api = f"{basic_api}/tasks"
 
-		return json_data
+        response = requests.get(api, headers=headers)
+        print(response)
 
+        json_data = response.json()
+
+        return json_data
 
     def add_task(self, title, description, contact_id):
-		headers = self.headers
-		wait_time = self.wait_time
-		basic_api = self.basic_api		
+        headers = self.headers
+        wait_time = self.wait_time
+        basic_api = self.basic_api
 
-		api = f"{basic_api}/task/"
-		payload = {
-			"title": title,
-			"description": description,
-			"contact_id": contact_id
-		}
-		response = requests.put(api, params=payload, headers=headers)    
-		print(response)
+        api = f"{basic_api}/task/"
+        payload = {"title": title, "description": description, "contact_id": contact_id}
+        response = requests.put(api, params=payload, headers=headers)
+        print(response)
 
-		json_data = response.json()
+        json_data = response.json()
 
-		return json_data
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        return json_data
