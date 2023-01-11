@@ -75,7 +75,7 @@ class Tasks:
         wait_time = self.wait_time
         basic_api = self.basic_api
 
-        api = f"{basic_api}/task"
+        api = f"{basic_api}/task/"
         payload = {"title": title, "description": description, "contact_id": contact_id, "completed": False}
         response = requests.post(api, params=payload, headers=headers)
         print(response)
