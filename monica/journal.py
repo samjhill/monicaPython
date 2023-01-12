@@ -76,7 +76,7 @@ class Journal:
         wait_time = self.wait_time
         basic_api = self.basic_api
 
-        api = f"{basic_api}/journal/{contact_id}"
+        api = f"{basic_api}/journal/{journal_entry_id}"
         payload = {"title": title, "post": content}
         response = requests.put(api, params=payload, headers=headers)
         print(response)
