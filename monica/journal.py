@@ -69,4 +69,18 @@ class Journal:
         json_data = response.json()
 
         return json_data
-        
+    
+    
+    def update_journal_entry(self, title, content, journal_entry_id):
+        headers = self.headers
+        wait_time = self.wait_time
+        basic_api = self.basic_api
+
+        api = f"{basic_api}/journal/{contact_id}"
+        payload = {"title": title, "post": content}
+        response = requests.put(api, params=payload, headers=headers)
+        print(response)
+
+        json_data = response.json()
+
+        return json_data
