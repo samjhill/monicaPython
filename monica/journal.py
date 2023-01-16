@@ -78,7 +78,7 @@ class Journal:
 
         api = f"{basic_api}/journal/{journal_entry_id}"
         payload = {"title": title, "post": content}
-        response = requests.put(api, params=payload, headers=headers)
+        response = requests.put(api, json=payload, headers=headers)
         print(response)
 
         json_data = response.json()

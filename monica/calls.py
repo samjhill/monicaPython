@@ -77,7 +77,7 @@ class Calls:
 
         api = f"{basic_api}/calls/{contact_id}"
         payload = {"content": content, "contact_id": contact_id, "called_at": called_at}
-        response = requests.put(api, data=payload, headers=headers)
+        response = requests.put(api, json=payload, headers=headers)
         print(response)
 
         json_data = response.json()
